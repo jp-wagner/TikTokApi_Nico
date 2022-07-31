@@ -1,3 +1,4 @@
+from tkinter import W
 from webdriver import Driver
 import json
 
@@ -12,9 +13,13 @@ print(tiktok["info"])
 download_video(tiktok["video"])
 
 # test hashtag scraping
-tiktoks = webdriver.scrape_hashtag("funny")
-for tiktok in tiktoks:
-    print(tiktok["info"])
+tiktoks = webdriver.scrape_hashtag("ukraine", count=3, download_video=True)
+for indx, tiktok in enumerate(tiktoks):
+    download_video(tiktok["video"], path=str(indx))
+    open(str(indx)+"info.txt", "w").write(str(tiktok["info"]))
+    if indx == 3:
+        webdriver.shutdown()
+        exit()
 
 # test sound scraping
 tiktoks = webdriver.scrape_sound("6728562975734515713")

@@ -4,11 +4,10 @@ import logging
 class Driver:
 
 
-    # comments
     # public likes
 
     def __init__(self):
-        self.api = TikTokApi(custom_verify_fp="verify_l69g7zud_MZwI7sKz_FlUJ_4GlT_8IvL_TwcuR59aCvUs")
+        self.api = TikTokApi(custom_verify_fp="verify_l69e8o8h_rpUoCneo_3PER_4vCU_9i8h_hQc7mLed2Y1A")
 
 
     def scrape_hashtag(self, hashtag, count=30, download_video=False):
@@ -139,5 +138,12 @@ class Driver:
                 "video": ""}
         if download_video:
             data["video"] = tiktok.bytes()
+
+
+        """
+        for comment in tiktok.comments(count=200):
+            print("Text:" + comment.text)
+            print("Likes:" + str(comment.likes_count))
+        """
 
         return data
