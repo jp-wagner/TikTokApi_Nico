@@ -137,7 +137,6 @@ class Driver:
 
         data = {"info": tiktok.info_full(),
                 "video": ""}
-
         if download_video:
             data["video"] = tiktok.bytes()
 
