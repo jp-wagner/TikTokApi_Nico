@@ -4,33 +4,31 @@ import json
 webdriver = Driver()
 
 def download_video(video, path="test_download.mp4"):
-    print("bruh")
     open(path, "wb").write(video)
-    print("breh")
 
-# test url scraping
+# test url scraping and download
 tiktok = webdriver.scrape_url("https://www.tiktok.com/@AisieArt/video/7097051858728013099", download_video=True)
-print(tiktok[0])
-download_video(tiktok[1])
+print(tiktok["info"])
+download_video(tiktok["video"])
 
 # test hashtag scraping
 tiktoks = webdriver.scrape_hashtag("funny")
 for tiktok in tiktoks:
-    print(tiktok[0])
+    print(tiktok["info"])
 
 # test sound scraping
-tiktoks = webdriver.scrape_sound("6728562975734515713", count=1000)
+tiktoks = webdriver.scrape_sound("6728562975734515713")
 for tiktok in tiktoks:
-    print(tiktok[0])
+    print(tiktok["info"])
 
 # test user scraping
 tiktoks = webdriver.scrape_user("the_rock")
 for tiktok in tiktoks:
-    print(tiktok[0])
+    print(tiktok["info"])
 
 # test search term scraping
 tiktoks = webdriver.scrape_search_term("funny animals")
 for tiktok in tiktoks:
-    print(tiktok[0])
+    print(tiktok["info"])
 
 webdriver.shutdown()

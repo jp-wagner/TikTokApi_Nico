@@ -8,7 +8,7 @@ class Driver:
     # public likes
 
     def __init__(self):
-        self.api = TikTokApi(custom_verify_fp="verify_l69f3w7b_aSIUwILn_UwKK_4z7X_Bai9_V2E0dN65JXNx")
+        self.api = TikTokApi(custom_verify_fp="verify_l69g7zud_MZwI7sKz_FlUJ_4GlT_8IvL_TwcuR59aCvUs")
 
 
     def scrape_hashtag(self, hashtag, count=30, download_video=False):
@@ -135,7 +135,10 @@ class Driver:
         download_video: whether or not to download the video (will increase runtime significantly)
         """
 
+        data = {"info": tiktok.info_full(),
+                "video": ""}
+
         if download_video:
-            return (tiktok.info_full(), tiktok.bytes())
-        else:
-            return tiktok.info_full()
+            data["video"] = tiktok.bytes()
+
+        return data
