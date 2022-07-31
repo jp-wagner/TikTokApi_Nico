@@ -9,3 +9,6 @@ For user scraping:
 4. Go to random user with a few video directly via url (e.g. tiktok.com/@AisieArt)
 5. Solve captcha
 6. Copy custom_verify_fp
+
+# Doc
+https://dteather.com/TikTok-Api/docs/TikTokApi.html
